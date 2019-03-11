@@ -17,3 +17,5 @@ add_subdirectory(msgs)
 add_library(StandalonePlugin SHARED plugin.cc )
 target_link_libraries(StandalonePlugin ${GAZEBO_LIBRARIES} msgs)
 
+add_executable(publish_vel publish_vel.cc msgs)
+target_link_libraries(publish_vel ${GAZEBO_LIBRARIES} msgs)
