@@ -1,0 +1,15 @@
+# 2.8.8 required to use PROTOBUF_IMPORT_DIRS
+cmake_minimum_required(VERSION 2.8.8 FATAL_ERROR)
+set (CMAKE_CXX_FLAGS "-g -Wall -std=gnu++17")
+
+include (FindPkgConfig)
+pkg_check_modules(GAZEBO gazebo)
+pkg_check_modules(SDF sdformat)
+
+include_directories(
+  ${GAZEBO_INCLUDE_DIRS}
+  )
+
+add_subdirectory(msgs)
+
+add_library(StandalonePlugin SHARED plugin.cc )
